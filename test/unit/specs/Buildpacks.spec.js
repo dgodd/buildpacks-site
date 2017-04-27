@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Buildpacks from '@/components/Buildpacks'
+import router from '@/router'
 
 describe('Buildpacks.vue', () => {
-  it('should render correct contents', () => {
+  it('should render list', () => {
     const Constructor = Vue.extend(Buildpacks)
-    const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent)
-      .to.equal('Welcome to Your Vue.js App')
+    Constructor.router = router
+
+    const vm = new Constructor({ router: router }).$mount()
+    expect(vm.$el.querySelector('ul').textContent)
+      .to.equal('go ruby')
   })
 })

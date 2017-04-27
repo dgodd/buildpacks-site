@@ -7,9 +7,12 @@
 </template>
 
 <script>
+import VueRouter from 'vue-router'
+
 export default {
   name: 'li-buildpack',
   props: ['buildpack'],
+  components: { 'router-link': VueRouter },
   computed: {
     github: function () {
       return `https://github.com/${this.buildpack.repo}`
